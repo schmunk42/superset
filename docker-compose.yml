@@ -15,7 +15,7 @@ services:
       MYSQL_PASSWORD: superset
     volumes:
       - mysql:/var/lib/mysql
-  superset:
+  web:
     build: .
     image: amancevice/superset
     restart: always
@@ -24,8 +24,9 @@ services:
       - redis
     environment:
       MAPBOX_API_KEY: ${MAPBOX_API_KEY}
+      VIRTUAL_HOST: ${VIRTUAL_HOST}
     ports:
-      - "8088:8088"
+      - "8088"
     volumes:
       - "./superset_config.py:/home/superset/superset_config.py"
 volumes:

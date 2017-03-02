@@ -29,6 +29,9 @@ services:
       - "8088"
     volumes:
       - "./superset_config.py:/home/superset/superset_config.py"
+  # TODO: temporary workaround
+  worker:
+    image: php
 volumes:
   mysql:
     external: false
